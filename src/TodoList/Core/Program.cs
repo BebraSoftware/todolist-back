@@ -5,6 +5,8 @@ namespace BebraSoftware.TodoList.Core
 
     public class Program
     {
+        #region Methods
+
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
@@ -16,5 +18,7 @@ namespace BebraSoftware.TodoList.Core
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        #endregion
     }
 }
