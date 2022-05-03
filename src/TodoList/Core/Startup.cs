@@ -8,12 +8,22 @@ namespace BebraSoftware.TodoList.Core
 
     public class Startup
     {
+        #region Fields
+
+        public IConfiguration Configuration { get; }
+
+        #endregion
+
+        #region Constructors
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        #endregion
+
+        #region Methods
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -40,5 +50,7 @@ namespace BebraSoftware.TodoList.Core
                 endpoints.MapControllers();
             });
         }
+
+        #endregion
     }
 }
