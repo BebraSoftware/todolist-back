@@ -6,7 +6,7 @@ namespace BebraSoftware.TodoList.Core
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.EntityFrameworkCore;
-    using BebraSoftware.TodoList.Models.ToDoListTasks;
+    using BebraSoftware.TodoList.Models.Tasks;
 
     public class Startup
     {
@@ -32,7 +32,7 @@ namespace BebraSoftware.TodoList.Core
         {
 
             services.AddControllers();
-            services.AddDbContext<ToDoListContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+            services.AddDbContext<Context>(opt => opt.UseInMemoryDatabase("TodoList"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
