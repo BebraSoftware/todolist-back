@@ -5,6 +5,8 @@ namespace BebraSoftware.TodoList.Core
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.EntityFrameworkCore;
+    using BebraSoftware.TodoList.Models.Tasks;
 
     public class Startup
     {
@@ -28,7 +30,9 @@ namespace BebraSoftware.TodoList.Core
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
+            services.AddDbContext<Context>(opt => opt.UseInMemoryDatabase("TodoList"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
