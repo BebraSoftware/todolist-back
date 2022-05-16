@@ -4,7 +4,6 @@ namespace BebraSoftware.TodoList.Models.Tasks
 
     public class Tasks
     {
-        
         public int Id { get; set; }
 
         public string Username { get; set; }
@@ -14,6 +13,5 @@ namespace BebraSoftware.TodoList.Models.Tasks
         public bool IsCompleted { get; set; }
 
         public bool IsImportant { get; set; }
-
     }
 }
