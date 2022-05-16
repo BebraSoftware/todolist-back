@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.CodeAnalysis;
-
-namespace BebraSoftware.TodoList.Models.Tasks
+﻿namespace BebraSoftware.TodoList.Models.Tasks
 {
+    using Microsoft.EntityFrameworkCore;
+    using System.Diagnostics.CodeAnalysis;
     public class Context : DbContext
     {
         public Context(DbContextOptions<Context> options) : base(options)

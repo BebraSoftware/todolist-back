@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BebraSoftware.TodoList.Models.Tasks;
-
-namespace BebraSoftware.TodoList.Controllers.TasksController
+﻿namespace BebraSoftware.TodoList.Controllers.TasksController
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using BebraSoftware.TodoList.Models.Tasks;
+
     [Route("api/[controller]")]
     [ApiController]
     public class TasksController : ControllerBase
