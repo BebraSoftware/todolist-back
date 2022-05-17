@@ -2,9 +2,6 @@ namespace BebraSoftware.TodoList.Core
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;
-    using Microsoft.EntityFrameworkCore;
-    using BebraSoftware.TodoList.Models.Tasks;
-
 
     public class Program
     {
