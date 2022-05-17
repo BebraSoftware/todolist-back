@@ -1,8 +1,6 @@
 namespace BebraSoftware.TodoList.Models.Tasks
 {
-    using System;
-
-    public class Tasks
+    public class TaskModel
     {
         public int Id { get; set; }
 

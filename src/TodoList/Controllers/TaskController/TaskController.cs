@@ -1,10 +1,8 @@
 ﻿namespace BebraSoftware.TodoList.Controllers.TasksController
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
     using BebraSoftware.TodoList.Models.Tasks;
@@ -20,16 +18,16 @@
             _context = context;
         }
 
-        // GET: api/Tasks
+        // GET: api/TaskModel
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tasks>>> GetItems()
+        public async Task<ActionResult<IEnumerable<TaskModel>>> GetItems()
         {
             return await _context.Items.ToListAsync();
         }
 
-        // GET: api/Tasks/5
+        // GET: api/TaskModel/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Tasks>> GetTasks(int id)
+        public async Task<ActionResult<TaskModel>> GetTasks(int id)
         {
             var Tasks = await _context.Items.FindAsync(id);
 
@@ -41,11 +39,9 @@
             return Tasks;
         }
 
-        // PUT: api/Tasks/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        // PUT: api/TaskModel/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTasks(int id, Tasks Tasks)
+        public async Task<IActionResult> PutTasks(int id, TaskModel Tasks)
         {
             if (id != Tasks.Id)
             {
@@ -73,11 +69,9 @@
             return NoContent();
         }
 
-        // POST: api/Tasks
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        // POST: api/TaskModel
         [HttpPost]
-        public async Task<ActionResult<Tasks>> PostTasks(Tasks Tasks)
+        public async Task<ActionResult<TaskModel>> PostTasks(TaskModel Tasks)
         {
             _context.Items.Add(Tasks);
             await _context.SaveChangesAsync();
@@ -85,9 +79,9 @@
             return CreatedAtAction("GetTasks", new { id = Tasks.Id }, Tasks);
         }
 
-        // DELETE: api/Tasks/5
+        // DELETE: api/TaskModel/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Tasks>> DeleteTasks(int id)
+        public async Task<ActionResult<TaskModel>> DeleteTasks(int id)
         {
             var Tasks = await _context.Items.FindAsync(id);
             if (Tasks == null)
