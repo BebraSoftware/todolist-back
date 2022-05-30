@@ -5,8 +5,11 @@ namespace BebraSoftware.TodoList.Core
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+    using Microsoft.EntityFrameworkCore;
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+    using Context.Task;
 
     using Services.UserService;
 
@@ -35,6 +38,8 @@ namespace BebraSoftware.TodoList.Core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<TaskContext>(opt => opt.UseInMemoryDatabase("TodoList"));
 
             services.AddSingleton<IAppSettings, AppSettings>();
             services.AddSingleton<IUserService, UserService>();
