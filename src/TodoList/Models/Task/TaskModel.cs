@@ -1,4 +1,4 @@
-namespace BebraSoftware.TodoList.Models.Tasks
+namespace BebraSoftware.TodoList.Models.Task
 {
     public class TaskModel
     {
@@ -6,7 +6,7 @@ namespace BebraSoftware.TodoList.Models.Tasks
 
         public string Username { get; set; }
 
-        public string TaskName { get; set; }
+        public string Taskname { get; set; }
 
         public bool IsCompleted { get; set; }
 

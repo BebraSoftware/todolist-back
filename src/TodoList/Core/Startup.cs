@@ -9,7 +9,7 @@ namespace BebraSoftware.TodoList.Core
     using Microsoft.IdentityModel.Tokens;
     using Microsoft.AspNetCore.Authentication.JwtBearer;
 
-    using Models.Tasks;
+    using Context.Task;
 
     using Services.UserService;
 
