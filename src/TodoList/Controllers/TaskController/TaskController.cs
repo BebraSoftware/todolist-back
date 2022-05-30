@@ -11,9 +11,9 @@
     [ApiController]
     public class TasksController : ControllerBase
     {
-        private readonly Context _context;
+        private readonly TaskContext _context;
 
-        public TasksController(Context context)
+        public TasksController(TaskContext context)
         {
             _context = context;
         }
