@@ -6,11 +6,18 @@ namespace BebraSoftware.TodoList.Core
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.EntityFrameworkCore;
-    using BebraSoftware.TodoList.Models.Tasks;
+    using Microsoft.IdentityModel.Tokens;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+    using Models.Tasks;
+
+    using Services.UserService;
+
+    using Helpers;
 
     public class Startup
     {
-        #region Fields
+        #region Properties
 
         public IConfiguration Configuration { get; }
 
@@ -31,7 +38,26 @@ namespace BebraSoftware.TodoList.Core
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             services.AddDbContext<TaskContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+
+            services.AddSingleton<IAppSettings, AppSettings>();
+            services.AddSingleton<IUserService, UserService>();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.RequireHttpsMetadata = false;
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuer = false,
+                            ValidateAudience = false,
+                            ValidateIssuerSigningKey = false,
+                            ValidIssuer = "http://localhost",
+                            ValidAudience = "http://localhost",
+                            ValidateLifetime = false
+                        };
+                    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +71,8 @@ namespace BebraSoftware.TodoList.Core
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
